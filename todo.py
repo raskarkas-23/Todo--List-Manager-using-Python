@@ -1,7 +1,30 @@
 import os
+import tkinter as tk
 
 FILE_NAME = "tasks.txt"
 
+#DASHBOARD
+def show_dashboard(tasks):
+    total = len(tasks)
+    completed = sum(1 for task in tasks if task["status"] == "Completed")
+    pending = total - completed
+
+    window = tk.Tk()
+    window.title("To-Do List Dashboard")
+    window.geometry("300x220")
+
+    tk.Label(window, text="TO-DO LIST DASHBOARD",
+             font=("Arial", 14, "bold")).pack(pady=10)
+    tk.Label(window, text=f"Total Tasks : {total}",
+             font=("Arial", 11)).pack()
+    tk.Label(window, text=f"Completed  : {completed}",
+             font=("Arial", 11)).pack()
+    tk.Label(window, text=f"Pending    : {pending}",
+             font=("Arial", 11)).pack()
+
+    window.mainloop()
+
+#FILE HANDLING
 def load_tasks():
     tasks = []
     if os.path.exists(FILE_NAME):
@@ -16,6 +39,7 @@ def save_tasks(tasks):
         for task in tasks:
             file.write(f"{task['task']}|{task['status']}\n")
 
+#TASK OPERATIONS
 def add_task(tasks):
     task_name = input("Enter task name: ")
     tasks.append({"task": task_name, "status": "Pending"})
@@ -52,15 +76,18 @@ def delete_task(tasks):
     except (IndexError, ValueError):
         print("Invalid selection!")
 
+# MAIN PROGRAM
 def main():
     tasks = load_tasks()
+
     while True:
         print("\n--- To-Do List Manager ---")
         print("1. Add Task")
         print("2. View Tasks")
         print("3. Update Task Status")
         print("4. Delete Task")
-        print("5. Exit")
+        print("5. Show Dashboard")
+        print("6. Exit")
 
         choice = input("Enter your choice: ")
 
@@ -73,10 +100,12 @@ def main():
         elif choice == "4":
             delete_task(tasks)
         elif choice == "5":
+            show_dashboard(tasks)
+        elif choice == "6":
             print("Exiting program. Goodbye!")
             break
         else:
-            print(" Invalid choice. Try again!")
+            print("Invalid choice. Try again!")
 
 if __name__ == "__main__":
     main()
