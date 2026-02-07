@@ -13,9 +13,14 @@ Features
 Technologies Used
 - Python
 
+  
+![Dashboard](dashboard.png)
+
+
 Steps to Run
 1. Clone the repository
 2. Navigate to the project directory
 3. Run the program using:
    python todo.py
+
 
