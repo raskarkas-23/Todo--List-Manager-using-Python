@@ -1,6 +1,7 @@
 To-Do List Manager
 
-Problem Statement
+Problem Statement:
+
 Create a To-Do List Manager that allows users to add tasks, view tasks, update task status, and delete tasks using a command-line interface.
 
 Features
@@ -22,5 +23,6 @@ Steps to Run
 2. Navigate to the project directory
 3. Run the program using:
    python todo.py
+
 
 
