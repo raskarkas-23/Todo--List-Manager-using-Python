@@ -1,0 +1,56 @@
+/* ===== LIGHT MODE ===== */
+body {
+    background: linear-gradient(135deg, #1d2671, #c33764);
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    transition: all 0.3s ease;
+}
+
+/* Container */
+.container-box {
+    max-width: 700px;
+    margin: auto;
+    margin-top: 60px;
+    background: rgba(255,255,255,0.15);
+    padding: 30px;
+    border-radius: 20px;
+}
+
+/* Tasks */
+.list-group-item {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+/* ===== DARK MODE (FIXED) ===== */
+body.dark-mode {
+    background: #121212 !important;
+    color: #ffffff !important;
+}
+
+/* Container */
+body.dark-mode .container-box {
+    background: rgba(0,0,0,0.8) !important;
+}
+
+/* Tasks */
+body.dark-mode .list-group-item {
+    background: rgba(255,255,255,0.1) !important;
+    color: white !important;
+}
+
+/* Inputs */
+body.dark-mode input,
+body.dark-mode select {
+    background: #222 !important;
+    color: white !important;
+    border: none;
+}
+
+/* Buttons */
+body.dark-mode .btn-light {
+    background: #444 !important;
+    color: white !important;
+}
